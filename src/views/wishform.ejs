@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>diwali app</title>
+    <meta name="generator" content="Bootply" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <!-- mdb -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/css/uikit.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/mdbootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css" />
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css" />
+  </head>
+
+  <body
+    style="
+      background-color: darkblue;
+      height: auto;
+      width: auto;
+      background-image: url(https://i.pinimg.com/originals/b0/6b/3f/b06b3fc0bf44efcd3c1be170640cacbd.gif);
+    "
+  >
+    <!-- new code -->
+    <p
+      class="uk-animation-toggle uk-animation-slide-top uk-text-center"
+      tabindex="0"
+      style="font-size: 30px; font-weight: 900; color: blanchedalmond"
+    >
+      Welcome
+    </p>
+
+    <form method="POST"  id="mailform"  style="width: 50%; margin: auto">
+      <label for="user_name" style="color: white; font-size: 30px"
+        >Your Name</label
+      >
+      <br />
+      <input
+        type="text"
+        required
+        placeholder="username"
+        name="username"
+        style="height: 45px"
+        class="form-control form-control-lg"
+        id="username"
+       
+      />
+
+      <br />
+      <br />
+
+      <label for="user_name" style="color: white; font-size: 30px"
+        >Your Friend's Name</label
+      >
+      <br />
+      <input
+        type="text"
+        required
+        placeholder="friendname"
+        name="friendname"
+        style="height: 45px"
+        class="form-control form-control-lg"
+        id="friendname"
+      
+      />
+
+      <br />
+      <br />
+
+      <label for="user_name" style="color: white; font-size: 30px"
+        >Your Friend's Email Address</label
+      >
+      <br />
+      <input
+        type="text"
+        required
+        placeholder="friendemail"
+        name="friendemail"
+        style="height: 45px"
+        class="form-control form-control-lg"
+        id="friendemail"
+        
+      />
+
+      <br />
+      <br />
+
+      <a href="">
+        <button
+          id="submit"
+          class="btn btn-dark btn-lg btn-block"
+          style="background-color: rgb(59, 3, 31); color: white"
+        >
+          Submit
+        </button>
+      </a>
+      <br />
+      <br />
+    </form>
+    <!-- new code -->
+
+    <!-- mdb -->
+    <script
+      type="text/javascript"
+      src="node_modules/mdbootstrap/js/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/mdbootstrap/js/popper.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/mdbootstrap/js/bootstrap.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/mdbootstrap/js/mdb.min.js"
+    ></script>
+    <!-- mdb -->
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.8.0/dist/js/uikit-icons.min.js"></script>
+
+    <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $("#mailform").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+          url: "/wishform/add",
+          method: "POST",
+          data: {
+	username: $("#username").val(),
+	friendname: $("#friendname").val(),
+	friendemail: $("#friendemail").val(),
+            // message: $('#message').val(),
+          },
+          success: (response) => {
+            console.log(response);
+            if (response.success) {
+              alert("Mail Sent Successfully to " + response.name);
+            // window.location.href = "/sendpage";
+              location.reload();
+            } else {
+              alert("Failed to Sent Mail");
+              location.reload();
+            }
+          },
+          error: (response) => {
+            alert("Try Again");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

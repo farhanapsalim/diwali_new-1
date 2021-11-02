@@ -1,0 +1,160 @@
+
+/* password filed style */
+
+#message {
+                            display:none;
+                            background:inherit;
+                            color: #000;
+                            position: relative;
+                            padding: 20px;
+                            margin-top: 10px;
+                          }
+                          #message p {
+                            padding: 10px 35px;
+                            font-size: 18px;
+                          }
+                          
+                          /* Add a green text color and a checkmark when the requirements are right */
+                          .valid {
+                            color: green;
+                          }
+                          
+                          .valid:before {
+                            position: relative;
+                            left: -35px;
+                            content: "✔";
+                          }
+                          
+                          /* Add a red text color and an "x" when the requirements are wrong */
+                          .invalid {
+                            color: red;
+                          }
+                          
+                          .invalid:before {
+                            position: relative;
+                            left: -35px;
+                            content: "✖";
+                          }
+
+                          .field-icon {
+                            float: right;
+                            margin-left: -25px;
+                            margin-top: -25px;
+                            position: relative;
+                            z-index: 2;
+                          }
+                          
+                          .container{
+                            padding-top:50px;
+                            margin: auto;
+                          }
+                          
+
+
+
+                          /* password style */
+
+
+                          /* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+ html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+  background: #f2f2f2;
+} */
+
+.container_p header{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.container_p  .field{
+  height: 45px;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+ /* .field input{
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgrey;
+  padding-left: 15px;
+  outline: none;
+  border-radius: 5px;
+  font-size: 17px;
+  transition: all 0.3s;
+}
+ .field input:focus{
+  border-color: #27ae60;
+  box-shadow: inset 0 0 3px #2fd072;
+} */
+ .field .showBtn{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+  user-select: none;
+}
+ .indicator{
+  height: 10px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+}
+ .indicator span{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: lightgrey;
+  border-radius: 5px;
+}
+ .indicator span:nth-child(2){
+  margin: 0 3px;
+}
+ .indicator span.active:before{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+.indicator span.weak:before{
+  background-color: #ff4757;
+}
+.indicator span.medium:before{
+  background-color: orange;
+}
+.indicator span.strong:before{
+  background-color: #033d1b;
+}
+ .text_p{
+  font-size: 20px;
+  font-weight: 500;
+  display: none;
+  margin-bottom: -10px;
+}
+ .text_p.weak{
+  color: #ff4757;
+}
+ .text_p.medium{
+  color: orange;
+}
+ .text_p.strong{
+  color: #013316;
+}
